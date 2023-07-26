@@ -1,0 +1,11 @@
+node_modules/
+sites-rendered-output/
+localData/
+dist/
+.yext
+.artifact-output
+*.local
+
+.DS_Store
+
+.env

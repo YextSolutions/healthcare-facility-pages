@@ -22,7 +22,7 @@
     "node": "18"
   },
   "dependencies": {
-    "@yext/pages": "^1.0.0-beta.15",
+    "@yext/pages": "^1.0.0-beta.16",
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
     "@radix-ui/react-icons": "^1.3.0",

@@ -103,7 +103,7 @@ const DoctorPage: Template<TemplateRenderProps> = ({
           <LocationMap
               className="left-32 h-[230px] w-[300px] mt-0"
               clientKey="gme-yextinc"
-              coordinate={document.geocodedCoordinate}
+              coordinate={facility.geocodedCoordinate}
               provider={GoogleMaps}
             >
             {<svg

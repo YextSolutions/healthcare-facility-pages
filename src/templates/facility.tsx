@@ -57,6 +57,7 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
+  relativePrefixToRoot,
   document,
 }): HeadConfig => {
   const facility = document as Doctor;
@@ -68,6 +69,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 };
 
 const DoctorPage: Template<TemplateRenderProps> = ({
+  relativePrefixToRoot,
   document,
 }: TemplateProps) => {
   const {

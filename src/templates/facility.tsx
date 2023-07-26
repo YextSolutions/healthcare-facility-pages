@@ -51,21 +51,9 @@ export const config: TemplateConfig = {
     filter: { entityTypes: ["healthcareFacility"] },
   },
 };
-export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  const facility = document as Doctor;
-  return `${facility.slug}`;
-};
 
-export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  document,
-}): HeadConfig => {
-  const facility = document as Doctor;
-  return {
-    title: facility.name,
-    charset: "UTF-8",
-    viewport: "width=device-width, initial-scale=1",
-  };
+export const getPath: GetPath<TemplateProps> = ({ document }) => {
+  return document.slug ?? document.entityId.toString();
 };
 
 const DoctorPage: Template<TemplateRenderProps> = ({

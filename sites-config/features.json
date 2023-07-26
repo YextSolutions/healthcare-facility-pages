@@ -20,6 +20,13 @@
       },
       "fields": [
         "name",
+        "address.line1",
+        "address.line2",
+        "address.city",
+        "address.region",
+        "address.postalCode",
+        "address.countryCode",
+        "hours",
         "slug",
         "description",
         "logo.image",

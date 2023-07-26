@@ -32,6 +32,13 @@ export const config: TemplateConfig = {
     localization: { locales: ["en"], primary: false },
     fields: [
       "name",
+      "address.line1",
+      "address.line2",
+      "address.city",
+      "address.region",
+      "address.postalCode",
+      "address.countryCode",
+      "hours",
       "slug",
       "description",
       "logo.image",
@@ -65,10 +72,12 @@ const DoctorPage: Template<TemplateRenderProps> = ({
 }: TemplateProps) => {
   const {
     name,
+    address,
     logo,
     description,
     geocodedCoordinate,
     insuranceAccepted,
+    hours,
     languages,
     healthcare_fAQs,
   } = document as Doctor;
@@ -81,12 +90,16 @@ const DoctorPage: Template<TemplateRenderProps> = ({
             <DoctorCard
               headshot={logo}
               name={name}
-              specialty={"Hospital"}
-              rating={4.5}
+              addressLine1={address.line1}
+              addressLine2={address.line2}
+              city={address.city}
+              region={address.region}
+              postalCode={address.postalCode}
+              countryCode={address.countryCode}
               // containerClassname="pr-6"
             />
           <LocationMap
-              className="left-32 h-[300px] w-[400px] mt-0"
+              className="left-32 h-[230px] w-[300px] mt-0"
               clientKey="gme-yextinc"
               coordinate={geocodedCoordinate}
               provider={GoogleMaps}
@@ -123,31 +136,11 @@ const DoctorPage: Template<TemplateRenderProps> = ({
         <ScrollableSection title="About" outerContainerClassname="scroll-mt-24">
           <BodyText text={description} className="whitespace-pre-line" />
         </ScrollableSection>
-        <ScrollableSection
-          title="Education & Background"
-          outerContainerClassname="bg-light-green scroll-mt-24"
-          innerContainerClassname="max-w-5xl"
-        >
-          <DoctorBackground
-            items={[
-              // {
-              //   icon: "school",
-              //   name: "Education",
-              //   details: educationList.institutionName,
-              // },
-              {
-                icon: "language",
-                name: "Languages Spoken",
-                details: languages,
-              }
-            ]}
-          />
-        </ScrollableSection>
 
 
         <ScrollableSection
           title="Insurances Accepted"
-          outerContainerClassname="scroll-mt-24"
+          outerContainerClassname="bg-light-green scroll-mt-24"
           innerContainerClassname="max-w-5xl"
         >
         
@@ -157,7 +150,7 @@ const DoctorPage: Template<TemplateRenderProps> = ({
         <ScrollableSection
           title="FAQs"
           innerContainerClassname="max-w-5xl"
-          outerContainerClassname="bg-light-green scroll-mt-24"
+          outerContainerClassname="scroll-mt-24"
         >
           <Faqs faqs={healthcare_fAQs} />
         </ScrollableSection>

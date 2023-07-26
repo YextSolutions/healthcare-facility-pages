@@ -10,9 +10,16 @@ import { twMerge } from "tailwind-merge";
 
 export interface DoctorCardProps {
   name: string;
-  specialty: string;
+	addressLine1?: string,
+	addressLine2?: string,
+	addressLine3?: string,
+	sublocality?: string,
+	city?: string,
+	region?: string,
+	postalCode?: string,
+	extraDescription?: string,
+	countryCode?: string,
   headshot: ComplexImageType | ImageType;
-  rating: number;
   containerClassname?: string;
 }
 
@@ -29,29 +36,28 @@ const sellingPoints: { icon: IconName; name: string }[] = [
 
 export default function DoctorCard({
   name,
-  specialty,
+  addressLine1,
+  addressLine2,
+  city,
+  region,
   headshot,
-  rating,
+  postalCode,
+  countryCode,
   containerClassname,
 }: DoctorCardProps) {
   return (
-    <VStack classname={twMerge("gap-y-9", containerClassname)}>
+    <VStack classname={twMerge("gap-y-3", containerClassname)}>
       <HStack>
         <HStack classname="gap-2.5">
           <Avatar image={headshot} />
           <VStack classname="py-2.5 gap-y-3">
             <VStack classname="gap-y-1">
               <HeadingText text={name} level="Heading 3" />
-              <BodyText text={specialty} weight="Regular" color="text-green" />
+              <BodyText text={addressLine1} weight="Regular" color="text-green" />
+              <BodyText text={addressLine2} weight="Regular" color="text-green" /> 
+              <BodyText text={city + ", " + region + " " + postalCode} weight="Regular" color="text-green" />  
+              <BodyText text={countryCode} weight="Regular" color="text-green" />        
             </VStack>
-            <HStack classname="gap-x-1.5">
-              <Icon name="star" color="yellow" height={5} width={5} />
-              <BodyText
-                text={rating.toString()}
-                weight="Bold"
-                color="text-yellow"
-              />
-            </HStack>
           </VStack>
         </HStack>
       </HStack>

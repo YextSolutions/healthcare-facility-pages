@@ -60,9 +60,11 @@ export default interface Doctors {
 	slug: string,
 	logo: Image,
 	description: string,
+	address: Address,
 	headshot: Image,
 	insuranceAccepted: string[],
 	educationList: educationList[],
+	geocodedCoordinate: Coordinate
 	certifications: string[],
 	healthcare_practiceNames: string[],
 	languages: string[],

@@ -120,7 +120,7 @@ const DoctorPage: Template<TemplateRenderProps> = ({
         </Section>
 
       </CenteredContainer>
-      <NavBar labels={["About", "Insurances", "Locations"]} />
+      {/* <NavBar labels={["About", "Insurances", "Locations"]} /> */}
 
       <ScrollableContainer>
         <ScrollableSection title="About" outerContainerClassname="scroll-mt-24">
